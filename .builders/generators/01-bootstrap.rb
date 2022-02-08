@@ -92,8 +92,8 @@ KManager.action :bootstrap do
         add('.rspec', dom: dom)
         add('.rubocop.yml', dom: dom)
         add('README.md', dom: dom)
-        add('docs/CODE_OF_CONDUCT.md', dom: dom)
-        add('docs/LICENSE.txt', dom: dom)
+        add('CODE_OF_CONDUCT.md', dom: dom)
+        add('LICENSE.txt', dom: dom)
 
         run_command("rubocop -a")
       
