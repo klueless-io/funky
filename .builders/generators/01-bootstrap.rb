@@ -32,7 +32,7 @@ KManager.action :bootstrap do
         # debug
       end
       .blueprint(
-        active: true,
+        active: false,
         name: :bin_hook,
         description: 'initialize repository',
         on_exist: :compare) do
@@ -52,23 +52,21 @@ KManager.action :bootstrap do
         run_command("gh repo edit -d \"#{dom[:application_description]}\"")
       end
       .package_json(
-        active: false,
+        active: true,
         name: :package_json,
         description: 'Set up the package.json file for semantic versioning'
       ) do
-        # npm_init
-        # add('package.json', dom: dom)
-        settings(
-          name:        dom[:application],
-          version:     dom[:initial_semver],
-          description: dom[:application_description],
-          author:      dom[:author]
-        )
-        .remove('directories').remove('keywords').remove('main').remove('license')
-        .add_script('release', 'semantic-release')
-        .sort
-        .development
-        .npm_add_group('semver-ruby')
+        # self
+        #   .add('package.json', dom: dom)
+        #   .play_actions
+
+        # self
+        #   .add_script('release', 'semantic-release')
+        #   .sort
+        #   .development
+        #   .npm_add_group('semver-ruby')
+
+        run_command("git add .; git commit -m 'chore: #{self.options.description.downcase}'; git push")
       end
       .blueprint(
         active: false,

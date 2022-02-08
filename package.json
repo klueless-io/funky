@@ -1,0 +1,14 @@
+{
+  "name": "funky",
+  "version": "0.0.1",
+  "description": "Funky provides many simple functions across various categories, these functions are implemented in the command pattern style",
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "@klueless-js/semantic-release-rubygem": "github:klueless-js/semantic-release-rubygem",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^19.0.2"
+  }
+}
